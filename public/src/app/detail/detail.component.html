@@ -1,0 +1,48 @@
+<!-- <p>detail works!</p> -->
+
+<div class="col-md-3 offset-md-9">
+	<a [routerLink]="['/dashboard', loggedinUserId]" class="float-right">Go to Poll</a>
+</div>
+
+<h1>{{ oneSurvey.question }}</h1>
+<p>Click the Vote button to choose one</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Option</th>
+			<th scope="col">Current Count of Votes</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ oneSurvey.option1 }}</td>
+			<td>{{ oneSurvey.vote1 }}</td>
+			<td>
+				<button (click)="upVoteFromService(oneSurvey._id, 1)" class="btn btn-success">Vote</button>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ oneSurvey.option2 }}</td>
+			<td>{{ oneSurvey.vote2 }}</td>
+			<td>
+				<button (click)="upVoteFromService(oneSurvey._id, 2)" class="btn btn-success">Vote</button>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ oneSurvey.option3 }}</td>
+			<td>{{ oneSurvey.vote3 }}</td>
+			<td>
+				<button (click)="upVoteFromService(oneSurvey._id, 3)" class="btn btn-success">Vote</button>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ oneSurvey.option4 }}</td>
+			<td>{{ oneSurvey.vote4 }}</td>
+			<td>
+				<button (click)="upVoteFromService(oneSurvey._id, 4)" class="btn btn-success">Vote</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

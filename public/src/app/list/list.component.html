@@ -1,0 +1,34 @@
+<!-- <p>list works!</p> -->
+
+<div class="col-md-3 offset-md-9">
+	<a [routerLink]="['/new', loggedinUserId]" class="mr-5">Create a New Poll</a>
+	<a [routerLink]="['/login']">Logout</a>
+</div>
+
+<h1>Current Polls:</h1>
+<div class="col-md-3 offset-md-9 mb-3">
+	<input (keyup)="searchByQuestion($event)" type="text" name="searchByQuestion" class="form-control" placeholder="Search">
+</div>
+<!-- 
+<input (keyup)="searchByUser($event)" type="text" name="searchByUser" class="form-control" placeholder="Search by user name"> -->
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Survey Question</th>
+			<th scope="col">Date Posted</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let survey of allSurveys">
+			<div *ngFor="let user of allUsers"><td *ngIf="user._id==survey._user">{{ user.name }}</td></div>
+			<td><a [routerLink]="['/poll', survey._id, loggedinUserId]">{{ survey.question }}</a></td>
+			<td>{{ survey.createdAt | date }}</td>
+			<td>
+				<button *ngIf="loggedinUserId==survey._user" (click)="deleteSurveyFromService(survey._id)" class="btn btn-outline-danger">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

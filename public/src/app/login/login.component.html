@@ -1,0 +1,15 @@
+<!-- <p>login works!</p> -->
+
+<!-- {{ loggedInUser | json }} -->
+<ul class="list-unstyled">
+	<li *ngFor="let err of errMsgCreate" class="text-danger">{{ err }}</li>
+</ul>
+<form (submit)="loginFromService()">
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Your Name:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="loggedInUser.name" name="loggedInUser.name" required #name="ngModel" type="text" class="form-control" id="inputName">
+    </div>
+  </div>
+  <button [disabled]="!name.valid" type="submit" class="btn btn-primary float-right">Login</button>
+</form>

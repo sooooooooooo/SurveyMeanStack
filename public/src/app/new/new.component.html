@@ -1,0 +1,46 @@
+<!-- <p>new works!</p> -->
+
+<div class="col-md-3 offset-md-9">
+  <a [routerLink]="['/dashboard', loggedinUserId]" class="float-right">Cancel</a>
+</div>
+
+<h1 class="mb-5">Put the question and options here:</h1>
+<!-- {{ newPoll | json }} -->
+<ul class="list-unstyled">
+	<li *ngFor="let err of errMsgCreate" class="text-danger">{{ err }}</li>
+</ul>
+<form (submit)="createPollFromService()">
+  <div class="form-group row">
+    <label for="inputQuestion" class="col-sm-2 col-form-label">Question:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="newPoll.question" name="newPoll.question" type="text" class="form-control" id="inputQuestion">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputOption1" class="col-sm-2 col-form-label">Option 1:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="newPoll.option1" name="newPoll.option1" type="text" class="form-control" id="inputOption1">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputOption2" class="col-sm-2 col-form-label">Option 2:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="newPoll.option2" name="newPoll.option2" type="text" class="form-control" id="inputOption2">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputOption3" class="col-sm-2 col-form-label">Option 3:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="newPoll.option3" name="newPoll.option3" type="text" class="form-control" id="inputOption3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputOption4" class="col-sm-2 col-form-label">Option 4:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="newPoll.option4" name="newPoll.option4" type="text" class="form-control" id="inputOption4">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary float-right">Create Poll</button>
+
+</form>
